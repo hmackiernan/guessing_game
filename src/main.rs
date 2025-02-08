@@ -28,6 +28,12 @@ fn main() {
 // the line above would crash if a non-number (or something that couldn't be parsed to a
 // u32 was entered.  With the code below, unparseable input is just ignored
 
+// parse returns a 'Result' type, an enum w/ two values Ok and Err; Ok means it could parse
+// the input to a number and it returns that number ('in' somehow) the Ok value.
+// that then matches the pattern 'Ok(num)' and that num is returned inline.
+// Failing to parse returns 'Err' and the _ is a wildcard like pattern that will match
+// anything that might be inside Err
+
    let guess: u32 = match guess.trim().parse() {
 	    Ok(num) => num,
 	    Err(_) => continue,
